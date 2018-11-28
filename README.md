@@ -35,5 +35,7 @@ chatListener.OnRawIrcMessage += (string message) =>
     Console.WriteLine(message);
 };
 
-chatListener.StartListening();
+
+if(chatListener.Connect())
+    chatListener.StartListening();
 ```
