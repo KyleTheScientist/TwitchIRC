@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading;
 
@@ -44,7 +43,10 @@ namespace TwitchIRC
             readThread = new Thread(new ThreadStart(Listen)); //initialize thread
         }
 
-        /// <summary>Attenmpts to connect to the Twitch server and joins the set channel</summary>
+        /// <summary>
+        /// Attenmpts to connect to the Twitch server and joins the set channel. 
+        /// Generates a new IRC Client object
+        /// </summary>
         /// <returns>Returns whether the connection was successful</returns>
         public bool Connect()
         {
@@ -130,6 +132,19 @@ namespace TwitchIRC
         {
             listening = false;
             readThread.Abort();
+        }
+
+        /// <summary></summary>
+        public IrcClient Irc
+        {
+            get
+            {
+                return irc;
+            }
+            set
+            {
+                this.irc = value;
+            }
         }
 
         /// <summary>

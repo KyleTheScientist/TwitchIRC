@@ -29,7 +29,10 @@
             <param name="channel">The channel the bot should join. </param>
         </member>
         <member name="M:TwitchIRC.ChatListener.Connect">
-            <summary>Attenmpts to connect to the Twitch server and joins the set channel</summary>
+            <summary>
+            Attenmpts to connect to the Twitch server and joins the set channel. 
+            Generates a new IRC Client object
+            </summary>
             <returns>Returns whether the connection was successful</returns>
         </member>
         <member name="M:TwitchIRC.ChatListener.SplitAtFirst(System.String,System.String)">
@@ -53,6 +56,9 @@
             <summary>
             Dangerously stops the listening thread. 
             </summary>
+        </member>
+        <member name="P:TwitchIRC.ChatListener.Irc">
+            <summary></summary>
         </member>
         <member name="P:TwitchIRC.ChatListener.Connected">
             <summary>
