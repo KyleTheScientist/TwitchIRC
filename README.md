@@ -12,19 +12,24 @@ This is a library I made to help me work Twitch integration into Unity games, bu
 Here's a quick example of a console application that simply relays chat messages until the program is closed: 
 
 ```csharp
+//using TwitchIRC;
+
 string nick = "KyleTheScientist";
 string auth = "oauth:******************************";
 string channel = "RufusMckain"
 
-ChatListener chatListener = new ChatListener(nick, auth, channel); //Initializes and connect the listener to the server
+//Initializes and connect the listener to the server
+ChatListener chatListener = new ChatListener(nick, auth, channel); 
 
 //The OnChatMessage event gets called whenever a public chat message is read
+//and relays the message, the user who sent it, and the channel it was sent in.
 chatListener.OnChatMessage += (string user, string message, string channel) => 
 {
     Console.WriteLine($"{user} said '{message}' in {channel}'s channel");
 };
 
-//The OnChatMessage event gets called whenever a message is sent to the IRC server
+//The OnChatMessage event gets called whenever a message is sent to the IRC server,
+//and relays the raw message data.
 chatListener.OnRawIrcMessage += (string message) =>
 {
     Console.WriteLine(message);
