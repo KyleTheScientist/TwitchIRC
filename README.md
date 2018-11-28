@@ -39,3 +39,17 @@ chatListener.OnRawIrcMessage += (string message) =>
 if(chatListener.Connect())
     chatListener.StartListening();
 ```
+
+If you want to stop listening:
+
+```
+chatListener.StopListening();
+```
+
+To send messages via IRC:
+
+```
+IrcClient irc = chatListener.Irc;
+irc.SendChatMessage("Hello world!");
+irc.SendIrcMessage("CAP REQ :twitch.tv/membership");
+```
