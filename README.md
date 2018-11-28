@@ -5,7 +5,7 @@ This is a library I made to help me work Twitch integration into Unity games, bu
 
 ### Prerequisites
 
-.NET framework 3.5 or higher
+.NET framework 2.0 or higher
 
 ## Usage
 
