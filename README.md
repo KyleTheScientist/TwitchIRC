@@ -1,5 +1,5 @@
 # TwitchIRC
-###An IRC class library for C#
+### An IRC class library for C#
 
 
 It lets you retrieve messages, send messages, and handles the ping/ponging for you.
