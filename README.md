@@ -50,6 +50,6 @@ To send messages via IRC:
 
 ```
 IrcClient irc = chatListener.Irc;
-irc.SendChatMessage("Hello world!");
-irc.SendIrcMessage("CAP REQ :twitch.tv/membership");
+irc.SendChatMessage("Hello world!"); //Automatically formats text to send as a public chat message
+irc.SendIrcMessage("CAP REQ :twitch.tv/membership"); //Sends the raw text to the server
 ```
