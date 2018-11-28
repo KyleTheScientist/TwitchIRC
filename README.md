@@ -40,6 +40,8 @@ if(chatListener.Connect())
     chatListener.StartListening();
 ```
 
+You can get your oAuth code [here](https://twitchapps.com/tmi/).
+
 If you want to stop listening:
 
 ```csharp
