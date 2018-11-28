@@ -42,13 +42,13 @@ if(chatListener.Connect())
 
 If you want to stop listening:
 
-```
+```csharp
 chatListener.StopListening();
 ```
 
 To send messages via IRC:
 
-```
+```csharp
 IrcClient irc = chatListener.Irc;
 irc.SendChatMessage("Hello world!"); //Automatically formats text to send as a public chat message
 irc.SendIrcMessage("CAP REQ :twitch.tv/membership"); //Sends the raw text to the server
