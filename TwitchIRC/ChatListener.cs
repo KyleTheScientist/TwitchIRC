@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
+using System.Diagnostics;
 
 namespace TwitchIRC
 {
@@ -18,6 +19,8 @@ namespace TwitchIRC
 
         private IrcClient irc;
         private Thread readThread;
+
+        private Stopwatch pingTimer;
 
         /// <summary></summary>
         public delegate void IrcDelegate(string message);
@@ -71,8 +74,13 @@ namespace TwitchIRC
             {
                 if (irc.Connected)
                 {
+                    HandlePings();
+
                     string ircMessage = irc.ReadMessage();
                     if (ircMessage == null) continue;
+
+                    if (ircMessage.StartsWith("PING")) //we need to send back a PONG when we get PING'd so we don't disconnect
+                        irc.SendIrcMessage("PONG irc.twitch.tv");
 
                     if (OnRawIrcMessage != null)
                         OnRawIrcMessage(ircMessage);
@@ -89,6 +97,20 @@ namespace TwitchIRC
                             OnChatMessage(nickname, message, channel);
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// A ping must be sent to the server every
+        /// </summary>
+        private void HandlePings()
+        {
+            if (pingTimer.Elapsed.Seconds > 240) //ping once every 4 minutes
+            {
+                irc.SendIrcMessage("PING irc.twitch.tv");
+
+                pingTimer.Reset(); //reset timer
+                pingTimer.Start();
             }
         }
 
@@ -114,6 +136,7 @@ namespace TwitchIRC
         public void StartListening()
         {
             readThread.Start();
+            pingTimer.Start();
             listening = true;
         }
 
@@ -122,6 +145,9 @@ namespace TwitchIRC
         /// </summary>
         public void StopListening()
         {
+            pingTimer.Stop();
+            pingTimer.Reset();
+
             listening = false;
         }
 
@@ -130,8 +156,11 @@ namespace TwitchIRC
         /// </summary>
         public void ForceStopListening()
         {
-            listening = false;
+            pingTimer.Stop();
+            pingTimer.Reset();
+
             readThread.Abort();
+            listening = false;
         }
 
         /// <summary></summary>

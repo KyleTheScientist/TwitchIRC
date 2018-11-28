@@ -35,6 +35,11 @@
             </summary>
             <returns>Returns whether the connection was successful</returns>
         </member>
+        <member name="M:TwitchIRC.ChatListener.HandlePings">
+            <summary>
+            A ping must be sent to the server every
+            </summary>
+        </member>
         <member name="M:TwitchIRC.ChatListener.SplitAtFirst(System.String,System.String)">
             <summary>
             Splits the string into two at the index of the key, returns an array containing the two halves of the string.
