@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>TwitchIRC</name>
+    </assembly>
+    <members>
+        <member name="T:TwitchIRC.ChatListener">
+            <summary>
+            Listens to IRC channels for messages and calls OnRawIrcMessage/OnChatMessage when 
+            a new message is found
+            </summary>
+        </member>
+        <member name="T:TwitchIRC.ChatListener.IrcDelegate">
+            <summary></summary>
+        </member>
+        <member name="T:TwitchIRC.ChatListener.ChatDelegate">
+            <summary></summary>
+        </member>
+        <member name="E:TwitchIRC.ChatListener.OnRawIrcMessage">
+            <summary>Gets called whenever a new message gets sent to the server</summary>
+        </member>
+        <member name="E:TwitchIRC.ChatListener.OnChatMessage">
+            <summary>Gets called whenever a new PRIVMSG gets sent to the server</summary>
+        </member>
+        <member name="M:TwitchIRC.ChatListener.#ctor(System.String,System.String,System.String)">
+            <summary>Creates a new instance of ChatListener</summary>
+            <param name="nick">The account's username</param>
+            <param name="oauth">The account's oauth code. Obtainable from https://twitchapps.com/tmi/ </param>
+            <param name="channel">The channel the bot should join. </param>
+        </member>
+        <member name="M:TwitchIRC.ChatListener.Connect">
+            <summary>Attenmpts to connect to the Twitch server and joins the set channel</summary>
+            <returns>Returns whether the connection was successful</returns>
+        </member>
+        <member name="M:TwitchIRC.ChatListener.SplitAtFirst(System.String,System.String)">
+            <summary>
+            Splits the string into two at the index of the key, returns an array containing the two halves of the string.
+            Returns null if the key was not contained in the string
+            Returned strings do not contain the key
+            </summary>
+        </member>
+        <member name="M:TwitchIRC.ChatListener.StartListening">
+            <summary>
+            Starts the listening thread. 
+            </summary>
+        </member>
+        <member name="M:TwitchIRC.ChatListener.StopListening">
+            <summary>
+            Safely stops the listening thread. 
+            </summary>
+        </member>
+        <member name="M:TwitchIRC.ChatListener.ForceStopListening">
+            <summary>
+            Dangerously stops the listening thread. 
+            </summary>
+        </member>
+        <member name="P:TwitchIRC.ChatListener.Connected">
+            <summary>
+            Returns whether or not the irc client is connected to Twitch
+            </summary>
+        </member>
+        <member name="M:TwitchIRC.Error.Log(System.Exception)">
+            <summary>
+            Logs an exception to the console
+            </summary>
+        </member>
+        <member name="M:TwitchIRC.Error.Log(System.String)">
+            <summary>
+            Logs an error message to the console
+            </summary>
+        </member>
+        <member name="T:TwitchIRC.IrcClient">
+            <summary>
+            Utility class for retrieving IRC messages
+            </summary>
+        </member>
+        <member name="M:TwitchIRC.IrcClient.#ctor(System.String,System.Int32,System.String,System.String)">
+            <summary>
+            Creates a new IRC client object and attempts to join the server as the specified user
+            </summary>
+        </member>
+        <member name="M:TwitchIRC.IrcClient.JoinChannel(System.String)">
+            <summary>
+            Attempts to join the channel
+            </summary>
+            <param name="channel">Name of the channel to join</param>
+        </member>
+        <member name="M:TwitchIRC.IrcClient.SendIrcMessage(System.String)">
+            <summary>
+            Sends a raw IRC message to the server
+            </summary>
+        </member>
+        <member name="M:TwitchIRC.IrcClient.SendChatMessage(System.String)">
+            <summary>
+            Sends a PRIVMSG to the chat 
+            </summary>
+        </member>
+        <member name="M:TwitchIRC.IrcClient.ReadMessage">
+            <summary>
+            Attempts to read a message from the IRC server
+            </summary>
+            <returns>Returns a message if one is found.
+            Returns null if no data is found.</returns>
+        </member>
+        <member name="M:TwitchIRC.IrcClient.Close">
+            <summary>
+            Closes the input and output streams
+            </summary>
+        </member>
+        <member name="P:TwitchIRC.IrcClient.Connected">
+            <summary>
+            Returns whether the TCP client object is connected to the IP
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,7 @@
+C:\Users\Kylw\Documents\Visual Studio 2017\Projects\TwitchIRC\TwitchIRC\bin\Debug\TwitchIRC.dll
+C:\Users\Kylw\Documents\Visual Studio 2017\Projects\TwitchIRC\TwitchIRC\bin\Debug\TwitchIRC.pdb
+C:\Users\Kylw\Documents\Visual Studio 2017\Projects\TwitchIRC\TwitchIRC\obj\Debug\TwitchIRC.csprojAssemblyReference.cache
+C:\Users\Kylw\Documents\Visual Studio 2017\Projects\TwitchIRC\TwitchIRC\obj\Debug\TwitchIRC.csproj.CoreCompileInputs.cache
+C:\Users\Kylw\Documents\Visual Studio 2017\Projects\TwitchIRC\TwitchIRC\obj\Debug\TwitchIRC.dll
+C:\Users\Kylw\Documents\Visual Studio 2017\Projects\TwitchIRC\TwitchIRC\obj\Debug\TwitchIRC.pdb
+C:\Users\Kylw\Documents\Visual Studio 2017\Projects\TwitchIRC\TwitchIRC\bin\Debug\TwitchIRC.xml
