@@ -1,10 +1,7 @@
 # TwitchIRC
 ### An IRC class library for C#
 
-
-It lets you retrieve messages, send messages, and handles the ping/ponging for you.
-
-This is a library I made to help me work Twitch integration into Unity games, but it works for any C# application.
+It retrieves messages, sends messages, and handles the ping/ponging for you. I made this library to help me work Twitch integration into Unity games, but it works for any C# application.
 
 ### Prerequisites
 
