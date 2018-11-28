@@ -43,6 +43,7 @@ namespace TwitchIRC
             this.nick = nick;
             this.oauth = oauth;
             this.channel = channel.ToLower();
+            pingTimer = new Stopwatch();
             readThread = new Thread(new ThreadStart(Listen)); //initialize thread
         }
 
