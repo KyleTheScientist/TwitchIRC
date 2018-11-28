@@ -74,7 +74,7 @@ namespace TwitchIRC
         }
 
         /// <summary>
-        /// Sends a PRIVMSG to the chat 
+        /// Sends a public message to the chat 
         /// </summary>
         public void SendChatMessage(string message)
         {
