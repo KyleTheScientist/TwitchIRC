@@ -1,7 +1,7 @@
 # TwitchIRC
-An IRC class library for C#
+### An IRC class library for C#
 
-This is a library I made to help me work Twitch integration into Unity games, but it works for any C# application.
+It retrieves messages, sends messages, and handles the ping/ponging for you. I made this library to help me work Twitch integration into Unity games, but it works for any C# application.
 
 ### Prerequisites
 
@@ -18,18 +18,16 @@ string nick = "KyleTheScientist";
 string auth = "oauth:******************************";
 string channel = "RufusMckain"
 
-//Initializes and connect the listener to the server
+//Initializes and connects the listener to the server
 ChatListener chatListener = new ChatListener(nick, auth, channel); 
 
-//The OnChatMessage event gets called whenever a public chat message is read
-//and relays the message, the user who sent it, and the channel it was sent in.
+//The OnChatMessage event gets called whenever a public chat message is read and relays the message, the user who sent it, and the channel it was sent in.
 chatListener.OnChatMessage += (string user, string message, string channel) => 
 {
     Console.WriteLine($"{user} said '{message}' in {channel}'s channel");
 };
 
-//The OnChatMessage event gets called whenever a message is sent to the IRC server,
-//and relays the raw message data.
+//The OnChatMessage event gets called whenever a message is sent to the IRC server, and relays the raw message data.
 chatListener.OnRawIrcMessage += (string message) =>
 {
     Console.WriteLine(message);
