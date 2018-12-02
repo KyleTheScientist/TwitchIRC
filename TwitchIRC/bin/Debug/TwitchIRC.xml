@@ -103,7 +103,7 @@
         </member>
         <member name="M:TwitchIRC.IrcClient.SendChatMessage(System.String)">
             <summary>
-            Sends a PRIVMSG to the chat 
+            Sends a public message to the chat 
             </summary>
         </member>
         <member name="M:TwitchIRC.IrcClient.ReadMessage">
