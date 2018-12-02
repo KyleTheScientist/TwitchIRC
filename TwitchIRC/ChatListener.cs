@@ -43,6 +43,7 @@ namespace TwitchIRC
             this.nick = nick;
             this.oauth = oauth;
             this.channel = channel.ToLower();
+            pingTimer = new Stopwatch();
             readThread = new Thread(new ThreadStart(Listen)); //initialize thread
         }
 
@@ -90,8 +91,8 @@ namespace TwitchIRC
                         string nickname = ircMessage.Substring(1, ircMessage.IndexOf('!') - 1); //get nickname from message
 
                         //get message text
-                        string channelAndText = SplitAtFirst(PRIVATE_STRING, ircMessage)[1]; //get chars after the PRIVMSG keyword
-                        string message = SplitAtFirst(":", channelAndText)[1]; //gets chars after the ':' 
+                        string channelAndMessage = SplitAtFirst(PRIVATE_STRING, ircMessage)[1]; //get chars after the PRIVMSG keyword
+                        string message = SplitAtFirst(":", channelAndMessage)[1]; //gets chars after the ':' 
 
                         if (OnChatMessage != null)
                             OnChatMessage(nickname, message, channel);
@@ -183,7 +184,7 @@ namespace TwitchIRC
         {
             get
             {
-                return irc.Connected;
+                return (irc != null) ? irc.Connected : false;
             }
         }
     }
